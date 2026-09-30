@@ -1,0 +1,6 @@
+mutation AddVideoToWatchLaterList($videoId: ID!, $minutesFromUTC: Int!) {
+  addVideoToWatchLaterList(videoId: $videoId, minutesFromUTC: $minutesFromUTC) {
+    __typename
+    ... on GenericError { message }
+  }
+}

@@ -1,0 +1,40 @@
+query GetOpenSpaces($first: Int!, $after: String) {
+  result: getOpenSpaces {
+    __typename
+    ... on GetOpenSpacesPayload {
+      spaces(first: $first, after: $after) {
+        edges {
+          node {
+            ...SpaceFragment
+            __typename
+          }
+          __typename
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    ... on Error {
+      message
+      __typename
+    }
+  }
+}
+
+fragment SpaceFragment on Space {
+  id
+  name
+  privacy
+  is_primary
+  totalVideos
+  membersCount
+  currentUserIsMember
+  isArchived
+  currentUserCanEdit
+  __typename
+}

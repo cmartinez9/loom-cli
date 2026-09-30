@@ -1,0 +1,14 @@
+query GetUserFollowsVideo($videoId: String!) {
+  result: getUserFollowsVideo(videoId: $videoId) {
+    ... on UserFollowsStream {
+      id
+      follow
+      __typename
+    }
+    ... on GenericError {
+      message
+      __typename
+    }
+    __typename
+  }
+}

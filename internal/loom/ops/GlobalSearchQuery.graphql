@@ -1,0 +1,156 @@
+query GlobalSearchQuery($searchQuery: String!, $workspaceId: ID!) {
+  videos: searchVideos {
+    ... on SearchVideosPayload {
+      videoResults(first: 10, searchQuery: $searchQuery) {
+        nodes {
+          video {
+            id
+            __typename
+          }
+          ...VideoSearch
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  users: searchWorkspaceMembers(workspaceId: $workspaceId, query: $searchQuery) {
+    ... on SearchWorkspaceMembersResult {
+      users {
+        id
+        ...UserSearch
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  tags: searchWorkspaceTags(query: $searchQuery) {
+    ... on MatchedTags {
+      tags {
+        tag
+        ...TagSearch
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  folders: searchFolders(searchQuery: $searchQuery) {
+    ... on SearchFoldersPayload {
+      folders {
+        id
+        ...FolderSearch
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  playlists: searchPlaylists(searchQuery: $searchQuery) {
+    ... on SearchPlaylistsPayload {
+      playlists {
+        playlistId
+        ...PlaylistSearch
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+  spaces: searchSpaces {
+    ... on SearchSpacesPayload {
+      spaceResults(first: 10, searchQuery: $searchQuery) {
+        nodes {
+          space {
+            id
+            name
+            membersCount
+            totalVideos
+            isArchived
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment VideoSearch on VideoSearchResult {
+  video {
+    id
+    name
+    sharePageUri
+    owner {
+      display_name
+      __typename
+    }
+    playable_duration
+    processing_information {
+      trim_id
+      __typename
+    }
+    createdAt
+    __typename
+  }
+  matchedFields {
+    fieldName
+    __typename
+  }
+  __typename
+}
+
+fragment UserSearch on RegularUser {
+  id
+  display_name
+  email
+  avatars {
+    thumb
+    __typename
+  }
+  profileUri
+  profile {
+    profileVideoCount
+    __typename
+  }
+  __typename
+}
+
+fragment TagSearch on Tag {
+  tag
+  count
+  uri
+  __typename
+}
+
+fragment FolderSearch on RegularUserFolder {
+  id
+  name
+  totalNestedVideos
+  owner {
+    display_name
+    id
+    __typename
+  }
+  owner_id
+  space {
+    id
+    name
+    __typename
+  }
+  __typename
+}
+
+fragment PlaylistSearch on Playlist {
+  __typename
+  playlistId
+  name
+  videoCount
+  ownerId
+}

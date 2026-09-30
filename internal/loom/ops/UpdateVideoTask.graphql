@@ -1,0 +1,6 @@
+mutation UpdateVideoTask($id: ID!, $content: String!) {
+  updateVideoTask(id: $id, content: $content) {
+    __typename
+    ... on GenericError { message }
+  }
+}

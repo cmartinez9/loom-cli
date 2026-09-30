@@ -1,0 +1,13 @@
+query GetIsVideoPinned($videoId: ID!, $context: String!, $folderId: ID) {
+  getIsVideoPinned(videoId: $videoId, context: $context, folderId: $folderId) {
+    __typename
+    ... on GetIsVideoPinnedPayload {
+      isPinned
+      __typename
+    }
+    ... on GenericError {
+      message
+      __typename
+    }
+  }
+}

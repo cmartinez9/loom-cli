@@ -1,0 +1,6 @@
+mutation ApproveVideoTask($id: ID!) {
+  approveVideoTask(id: $id) {
+    __typename
+    ... on GenericError { message }
+  }
+}

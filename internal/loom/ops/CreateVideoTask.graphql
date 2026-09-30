@@ -1,0 +1,9 @@
+mutation CreateVideoTask($videoId: ID!, $content: String!, $timestamp: Int!) {
+  createVideoTask(videoId: $videoId, content: $content, timestamp: $timestamp) {
+    __typename
+    ... on CreateVideoTaskPayload {
+      task { id content time_stamp }
+    }
+    ... on GenericError { message }
+  }
+}

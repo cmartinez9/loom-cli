@@ -1,0 +1,95 @@
+query GetCalendarMeetings($rangeStart: String!, $rangeEnd: String!) {
+  me {
+    id
+    botProactivePromptingEnabled
+    meetingRecordingSettings {
+      guid
+      recordingLinkSharing
+      recordingWorkspaceMemberAccess
+      recordingSummaryNotificationSetting
+      autoRecordOwnedMeetings
+      excludeTwoOrFewerParticipants
+      __typename
+    }
+    calendars {
+      guid
+      integrationType
+      lastSyncedAt
+      hasSyncError
+      emailDomains
+      meetings(rangeStart: $rangeStart, rangeEnd: $rangeEnd) {
+        ...CalendarMeeting
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+
+fragment CalendarMeeting on CalendarMeeting {
+  guid
+  calendarMeetingGuid
+  title
+  startsAt
+  platform
+  url
+  code
+  organizer {
+    id
+    first_name
+    last_name
+    avatars {
+      thumb
+      __typename
+    }
+    __typename
+  }
+  recorder {
+    id
+    first_name
+    last_name
+    avatars {
+      thumb
+      __typename
+    }
+    __typename
+  }
+  organizerEmail
+  durationMins
+  createdAt
+  updatedAt
+  recurring
+  hasExternalParticipants
+  attendeeCount
+  automationsOverridden
+  owned
+  record
+  recordingDenied
+  past
+  videoId
+  recordingLinkSharing
+  recordingWorkspaceMemberAccess
+  recordingSummaryNotificationSetting
+  recordingFolders {
+    id
+    name
+    space {
+      id
+      __typename
+    }
+    __typename
+  }
+  recordingSpaces {
+    id
+    name
+    __typename
+  }
+  automation {
+    guid
+    name
+    __typename
+  }
+  calendarMeetingGuid
+  __typename
+}

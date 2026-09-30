@@ -1,0 +1,18 @@
+query GetCurrentUserVideoActivityFeed($limit: Int!, $offset: Int, $timeRange: TimeRangeInput) {
+  currentUser {
+    ... on CurrentUserGlobal {
+      activityHistory(limit: $limit, offset: $offset, timeRange: $timeRange) {
+        activityType
+        activityTime
+        target {
+          id
+          name
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

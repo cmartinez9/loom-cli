@@ -1,0 +1,7 @@
+mutation ToggleFollowingVideo($videoId: String!, $follow: Boolean!) {
+  toggleFollowingVideo(videoId: $videoId, follow: $follow) {
+    __typename
+    ... on UserFollowsStream { id follow }
+    ... on GenericError { message }
+  }
+}

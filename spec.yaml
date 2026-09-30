@@ -1,0 +1,281 @@
+# Curated internal spec for loom-pp-cli.
+#
+# Loom has no public REST API for a user's own library. The web app talks to
+# one internal GraphQL endpoint, POST https://www.loom.com/graphql, with
+# operationName + the full query document + variables (no persisted-query
+# hashes). This spec declares the GraphQL-shaped resources the generator needs
+# for scaffolding (client, cookie auth, store tables, sync, MCP); the real
+# operation documents live in internal/loom/ops/*.graphql and the commands are
+# hand-built on a Loom GraphQL client in Phase 3.
+#
+# The auto-sniffed spec's api_key auth on Key-Pair-Id was rejected: that is a
+# CloudFront URL-signing parameter on cdn.loom.com, not an auth header.
+name: loom
+display_name: Loom
+description: "Loom video library CLI: sync, search, transcripts, AI summaries, downloads and bulk organizing over the Loom web app's session."
+cli_description: "Your Loom library as a local, searchable archive: grep what you said, back up everything, and recap a week in one command."
+version: "0.1.0"
+category: productivity
+website_url: "https://www.loom.com"
+base_url: "https://www.loom.com"
+graphql_endpoint_path: "/graphql"
+health_check_path: "/graphql"
+required_headers:
+  - name: apollographql-client-name
+    value: web
+  - name: x-loom-request-source
+    value: loom_web
+  - name: content-type
+    value: application/json
+
+auth:
+  type: cookie
+  header: Cookie
+  in: cookie
+  cookie_domain: ".loom.com"
+  cookies:
+    - connect.sid
+  env_vars:
+    - LOOM_COOKIE
+  title: "Loom session cookie"
+  description: "The connect.sid session cookie the Loom web app uses (valid about 30 days). Import it with auth login --chrome while signed in to loom.com, or set LOOM_COOKIE to 'connect.sid=<value>'."
+  instructions: "Sign in to loom.com in Chrome, then run: loom-pp-cli auth login --chrome"
+  login_url: "https://www.loom.com/login"
+  verify_query: "query Me { me { id } }"
+
+config:
+  format: toml
+  path: "~/.config/loom-pp-cli/config.toml"
+
+# learn no-entities escape does not apply: video ids are ID-shaped tokens
+# agents paste into queries, and "recording"/"loom" are same-referent words
+# for a video in this domain.
+learn:
+  ticker_patterns:
+    - "^[0-9a-f]{32}$"
+  synonyms:
+    "recording": "video"
+    "recordings": "videos"
+    "looms": "videos"
+    "transcription": "transcript"
+
+resources:
+  videos:
+    description: "Videos in your Loom library"
+    endpoints:
+      list:
+        method: GET
+        path: /graphql
+        mutation: false
+        description: "List videos in your library, most recent first (GetLoomsForLibrary)"
+        response_path: getLooms.videos
+        params:
+          - name: limit
+            type: int
+            default: 50
+            description: "Maximum videos to return"
+        response:
+          type: array
+          item: Video
+      get:
+        method: POST
+        path: /graphql
+        mutation: false
+        description: "Get one video's metadata by id or share URL (GetVideoCardDetails)"
+        response_path: video
+        params:
+          - name: video_id
+            type: string
+            required: true
+            positional: true
+            description: "Loom video id (32 hex chars) or a loom.com/share/<id> URL"
+        response:
+          type: object
+          item: Video
+  folders:
+    description: "Folders in your Loom library"
+    endpoints:
+      list:
+        method: GET
+        path: /graphql
+        mutation: false
+        description: "List your folders (GetPublishedFolders)"
+        response_path: getPublishedFolders.folders
+        params:
+          - name: limit
+            type: int
+            default: 50
+            description: "Maximum folders to return"
+        response:
+          type: array
+          item: Folder
+  spaces:
+    description: "Spaces you belong to"
+    endpoints:
+      list:
+        method: GET
+        path: /graphql
+        mutation: false
+        description: "List spaces you are a member of (GetMySpaceMemberships)"
+        response_path: result.memberships
+        params:
+          - name: limit
+            type: int
+            default: 50
+            description: "Maximum spaces to return"
+        response:
+          type: array
+          item: Space
+
+types:
+  Video:
+    fields:
+      - name: id
+        type: string
+      - name: name
+        type: string
+      - name: description
+        type: string
+      - name: created_at
+        type: string
+        format: date-time
+      - name: duration_seconds
+        type: float
+      - name: views
+        type: int
+      - name: comments
+        type: int
+      - name: reactions
+        type: int
+      - name: privacy
+        type: string
+      - name: visibility
+        type: string
+      - name: archived
+        type: bool
+      - name: folder_id
+        type: string
+      - name: folder_name
+        type: string
+      - name: owner_id
+        type: string
+      - name: owner_name
+        type: string
+      - name: download_enabled
+        type: bool
+      - name: share_url
+        type: string
+  Folder:
+    fields:
+      - name: id
+        type: string
+      - name: name
+        type: string
+      - name: visibility
+        type: string
+  Space:
+    fields:
+      - name: id
+        type: string
+      - name: name
+        type: string
+      - name: privacy
+        type: string
+      - name: is_primary
+        type: bool
+
+extra_commands:
+  - name: videos search
+    description: "Search your Loom workspace server-side: videos, folders, spaces, tags and people"
+    args: "<query>"
+  - name: videos export
+    description: "Write a markdown bundle per video: metadata, transcript, summary, chapters, comments"
+    args: "<video-id>..."
+  - name: videos rename
+    description: "Rename a video (preview with --dry-run)"
+    args: "<video-id> <name>"
+  - name: videos describe
+    description: "Set a video's description (preview with --dry-run)"
+    args: "<video-id> <text>"
+  - name: videos settings
+    description: "Update a video's download, comment and reaction settings"
+    args: "<video-id>"
+  - name: videos archive
+    description: "Archive or unarchive videos by id or filter, with confirmation"
+  - name: videos move
+    description: "Move videos into a folder by id or filter"
+  - name: videos delete
+    description: "Delete a video (requires --yes; recoverable with videos recover)"
+    args: "<video-id>"
+  - name: videos recover
+    description: "Recover a deleted video"
+    args: "<video-id>"
+  - name: videos duplicate
+    description: "Duplicate a video"
+    args: "<video-id>"
+  - name: videos pin
+    description: "Pin or unpin a video in your library"
+    args: "<video-id>"
+  - name: videos share
+    description: "Share videos to one or more spaces"
+  - name: videos follow
+    description: "Follow or unfollow a video's activity"
+    args: "<video-id>"
+  - name: transcript
+    description: "A video's transcript as text, timestamped text, JSON, SRT or VTT"
+    args: "<video-id>"
+  - name: captions
+    description: "A video's WebVTT captions"
+    args: "<video-id>"
+  - name: summary
+    description: "Loom's AI summary for a video"
+    args: "<video-id>"
+  - name: chapters
+    description: "Loom's AI chapters with timestamps and deep links"
+    args: "<video-id>"
+  - name: description
+    description: "A video's description"
+    args: "<video-id>"
+  - name: takeaways
+    description: "Loom's key takeaways for a video (meeting takeaways)"
+    args: "<video-id>"
+  - name: comments list
+    description: "Comments and replies on a video, threaded"
+    args: "<video-id>"
+  - name: comments add
+    description: "Add a comment at a timestamp (preview with --dry-run)"
+    args: "<video-id> <text>"
+  - name: tasks list
+    description: "Loom's AI action items for a video"
+    args: "<video-id>"
+  - name: reactions list
+    description: "Emoji reactions on a video"
+    args: "<video-id>"
+  - name: tags list
+    description: "Tags on a video"
+    args: "<video-id>"
+  - name: backlinks
+    description: "Where a video is linked or embedded"
+    args: "<video-id>"
+  - name: download
+    description: "Download MP4s by id, list or filter; resumable and rate-limited"
+    args: "[video-id]..."
+  - name: folders create
+    description: "Create a folder (preview with --dry-run)"
+    args: "<name>"
+  - name: playlists list
+    description: "Playlists you can see, including Watch Later"
+  - name: recent
+    description: "Recently watched videos and upcoming meeting recordings"
+  - name: users get
+    description: "A Loom user's profile and total video count"
+    args: "[user-id]"
+  - name: grep
+    description: "Find the moment a phrase was spoken across every hydrated transcript, with deep links"
+    args: "<phrase>"
+  - name: hydrate
+    description: "Resumable backfill of transcripts, summaries, chapters and action items into the local store"
+  - name: activity
+    description: "New views, comments and reactions since your last check, with a needs-reply flag"
+  - name: digest
+    description: "Markdown recap of a time window's videos from Loom's summaries, chapters and action items"

@@ -1,0 +1,30 @@
+query VideoLinksAndSettings($videoId: ID!) {
+  videoLinksAndSettings(videoId: $videoId) {
+    ... on VideoLinksAndSettings {
+      links {
+        id
+        videoId
+        url
+        title
+        isAuto
+        pinned
+        isLegacy
+        isAtlassianLink
+        startMs
+        endMs
+        __typename
+      }
+      settings {
+        displayLinksAtTimestamps
+        onlyShowLinksAtEndOfVideo
+        __typename
+      }
+      __typename
+    }
+    ... on GenericError {
+      message
+      __typename
+    }
+    __typename
+  }
+}

@@ -1,0 +1,6 @@
+mutation RemoveVideoFromWatchLaterList($videoId: ID!) {
+  removeVideoFromWatchLaterList(videoId: $videoId) {
+    __typename
+    ... on GenericError { message }
+  }
+}

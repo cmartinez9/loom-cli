@@ -1,0 +1,9 @@
+mutation RenameFolder($folderId: ID!, $name: String!) {
+  renameFolder(folderId: $folderId, name: $name) {
+    __typename
+    ... on RenameFolderPayload {
+      folder { id name }
+    }
+    ... on GenericError { message }
+  }
+}

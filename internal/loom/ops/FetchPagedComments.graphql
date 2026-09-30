@@ -1,0 +1,92 @@
+query FetchPagedComments($id: ID!, $password: String, $first: Int!, $after: String) {
+  video: getVideo(id: $id, password: $password) {
+    __typename
+    ... on RegularUserVideo {
+      id
+      videoMeetingPlatform
+      video_comments(includeDeleted: true, first: $first, after: $after) {
+        ...CommentPostFragment
+        __typename
+      }
+      __typename
+    }
+  }
+}
+
+fragment CommentPostFragment on PublicVideoComment {
+  id
+  content(withMentionMarkups: true)
+  plainContent: content(withMentionMarkups: false)
+  time_stamp(password: $password)
+  user_name
+  avatar {
+    name
+    thumb
+    isAtlassianMastered
+    __typename
+  }
+  edited
+  createdAt
+  isChatMessage
+  user_id
+  anon_user_id
+  deletedAt
+  guid
+  images {
+    id
+    url
+    __typename
+  }
+  reactions {
+    ...CommentReactionFragment
+    __typename
+  }
+  children_comments {
+    ...CommentReplyFragment
+    __typename
+  }
+  __typename
+}
+
+fragment CommentReactionFragment on CommentReactionMetadata {
+  id
+  isCurrentUserReaction
+  userName
+  commentType
+  commentGuid
+  extendedReaction
+  createdAt
+  __typename
+}
+
+fragment CommentReplyFragment on PublicVideoComment {
+  id
+  content(withMentionMarkups: true)
+  plainContent: content(withMentionMarkups: false)
+  time_stamp(password: $password)
+  user_name
+  avatar {
+    name
+    thumb
+    isAtlassianMastered
+    __typename
+  }
+  edited
+  user_id
+  anon_user_id
+  createdAt
+  isChatMessage
+  comment_post_idv2
+  extended_reaction
+  guid
+  images {
+    id
+    url
+    __typename
+  }
+  reactions {
+    ...CommentReactionFragment
+    __typename
+  }
+  __typename
+}

@@ -1,0 +1,9 @@
+mutation CreateFolder($name: String!) {
+  createFolder(name: $name) {
+    __typename
+    ... on CreateFolderPayload {
+      folder { id name }
+    }
+    ... on GenericError { message }
+  }
+}

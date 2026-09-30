@@ -1,0 +1,17 @@
+query GetTotalVideosCountByUser($userId: ID!, $workspaceId: ID) {
+  getTotalVideosCountByUser(userId: $userId, workspaceId: $workspaceId) {
+    __typename
+    ... on TotalVideosCountByUserPayload {
+      videos_count
+      __typename
+    }
+    ... on UserNotAuthorizedError {
+      message
+      __typename
+    }
+    ... on GenericError {
+      message
+      __typename
+    }
+  }
+}

@@ -1,0 +1,21 @@
+# Root-anchored so cmd/<binary>/ source stays tracked.
+/loom-pp-cli
+/loom-pp-cli.exe
+/loom-pp-mcp
+/loom-pp-mcp.exe
+/bin/
+/build/
+/dist/
+
+# Local build outputs, run reports and secrets (never commit)
+/build/
+/.manuscripts/
+dogfood-results.json
+workflow-verify-report.json
+apify-actor-audit-report.json
+.env
+.env.*
+*.db
+*.db-shm
+*.db-wal
+cookies.json

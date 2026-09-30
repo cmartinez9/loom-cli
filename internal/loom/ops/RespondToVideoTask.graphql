@@ -1,0 +1,6 @@
+mutation RespondToVideoTask($id: ID!, $responded: Boolean!) {
+  respondToVideoTask(id: $id, responded: $responded) {
+    __typename
+    ... on GenericError { message }
+  }
+}

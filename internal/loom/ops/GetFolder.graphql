@@ -1,0 +1,15 @@
+query GetFolder($folderId: ID!) {
+  folder(id: $folderId) {
+    __typename
+    ... on RegularUserFolder {
+      id
+      name
+      visibility
+      createdAt
+      updatedAt
+      totalNestedVideos
+      owner_id
+      parent_folder_id
+    }
+  }
+}

@@ -1,0 +1,76 @@
+query GetPlaylistDetails($playlistId: ID!) {
+  getPlaylistDetails(playlistId: $playlistId) {
+    __typename
+    ... on PlaylistDetails {
+      playlistId
+      workspaceGuid
+      name
+      description
+      canEdit
+      canManageAccess
+      immutable
+      thumbnailUrl
+      videoCount
+      backgroundPresetName
+      playlistTotalViews
+      viewers {
+        userId
+        displayName
+        avatarThumbUrl
+        __typename
+      }
+      totalDuration
+      owner {
+        id
+        display_name
+        avatars {
+          thumb
+          __typename
+        }
+        __typename
+      }
+      collaborators {
+        userId
+        access
+        user {
+          id
+          fullName
+          avatarUrl
+          __typename
+        }
+        __typename
+      }
+      videos {
+        videoId
+        sort
+        createdAt
+        name
+        playableDuration
+        thumbnailUrl
+        viewerCanAccess
+        viewerHasWatched
+        isPasswordProtected
+        hasPermissionConflict
+        owner {
+          id
+          display_name
+          avatars {
+            thumb
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    ... on UserNotAuthorizedError {
+      message
+      __typename
+    }
+    ... on GenericError {
+      message
+      __typename
+    }
+  }
+}

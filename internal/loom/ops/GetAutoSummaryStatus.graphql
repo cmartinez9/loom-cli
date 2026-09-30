@@ -1,0 +1,15 @@
+query GetAutoSummaryStatus($videoId: ID!, $password: String) {
+  getAutoFeatureStatuses(videoId: $videoId, password: $password) {
+    __typename
+    ... on AutoFeatureStatuses {
+      id
+      autoSummary: autoDescription
+      autoSummaryStatus: autoDescriptionStatus
+      __typename
+    }
+    ... on Error {
+      message
+      __typename
+    }
+  }
+}

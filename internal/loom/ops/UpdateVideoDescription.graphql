@@ -1,0 +1,5 @@
+mutation UpdateVideoDescription($id: ID!, $description: String!) {
+  updateVideoDescription(id: $id, description: $description) {
+    ... on RegularUserVideo { id description }
+  }
+}

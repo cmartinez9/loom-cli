@@ -1,0 +1,12 @@
+query SearchFolders($searchQuery: String!) {
+  searchFolders(searchQuery: $searchQuery) {
+    __typename
+    ... on SearchFoldersPayload {
+      folders {
+        id
+        name
+        totalNestedVideos
+      }
+    }
+  }
+}

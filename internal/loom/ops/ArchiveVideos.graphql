@@ -1,0 +1,9 @@
+mutation ArchiveVideos($videoIds: [ID!]!, $isArchived: Boolean!) {
+  archiveVideos(videoIds: $videoIds, isArchived: $isArchived) {
+    __typename
+    ... on ArchiveVideosPayload {
+      videos { id name archived }
+    }
+    ... on GenericError { message }
+  }
+}

@@ -1,0 +1,62 @@
+query GetVideoCardDetails($videoId: ID!, $archived: Boolean) {
+  video: getVideo(id: $videoId, archived: $archived) {
+    __typename
+    ... on RegularUserVideo {
+      id
+      name
+      description
+      complete
+      archived
+      createdAt
+      playable_duration
+      totalReactions
+      totalComments
+      views {
+        total
+        distinct
+      }
+      owner_id
+      owner {
+        id
+        first_name
+        last_name
+      }
+      folder {
+        id
+        name
+      }
+      organization {
+        id
+        name
+      }
+      spaces {
+        id
+        name
+      }
+      download_enabled
+      downloadable
+      currentUserCanEdit
+      current_user_is_owner
+      tags
+      visibility
+      privacy
+      is_protected
+      comments_enabled
+      video_properties {
+        width
+        height
+      }
+      thumbnails {
+        default
+      }
+    }
+    ... on PrivateVideo {
+      id
+      message
+    }
+    ... on VideoPasswordMissingOrIncorrect {
+      id
+      message
+    }
+  }
+}

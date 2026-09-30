@@ -1,0 +1,9 @@
+query GetTagsByVideoId($videoId: ID!) {
+  result: getTagsByVideoId(videoId: $videoId) {
+    ... on GetTagsByVideoIdPayload {
+      tags
+      __typename
+    }
+    __typename
+  }
+}

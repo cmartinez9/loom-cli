@@ -1,0 +1,19 @@
+query SelectedWorkspaceMembership {
+  selectedWorkspaceMembership {
+    ... on SelectedWorkspaceMembershipResponsePayload {
+      workspaceMembership {
+        id
+        member_role
+        organization {
+          id
+          name
+          type
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

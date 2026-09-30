@@ -1,0 +1,3 @@
+mutation DeleteVideoReaction($reactionId: ID!) {
+  deleteVideoReaction(reactionId: $reactionId)
+}

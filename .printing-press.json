@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-09-30T04:12:52.313221Z",
+  "printing_press_version": "4.32.4",
+  "api_name": "loom",
+  "display_name": "Loom",
+  "cli_name": "loom-pp-cli",
+  "creator": {
+    "handle": "cmartinez9",
+    "name": "cmartinez9"
+  },
+  "owner": "cmartinez9",
+  "printer": "cmartinez9",
+  "printer_name": "cmartinez9",
+  "spec_path": "spec.yaml",
+  "spec_format": "internal",
+  "spec_source": "sniffed",
+  "spec_checksum": "sha256:fc127fc811a7588d21ed0ea82265bfc3cda3009ca62f1691181959426dadb5b6",
+  "run_id": "20260924-165948-f21db72b",
+  "category": "productivity",
+  "description": "Your Loom library as a local, searchable archive: grep what you said, back up everything, and recap a week in one command.",
+  "mcp_binary": "loom-pp-mcp",
+  "mcp_tool_count": 4,
+  "mcp_ready": "partial",
+  "api_version": "0.1.0",
+  "auth_type": "cookie",
+  "auth_env_vars": [
+    "LOOM_COOKIE"
+  ],
+  "auth_title": "Loom session cookie",
+  "auth_description": "The connect.sid session cookie the Loom web app uses (valid about 30 days). Import it with auth login --chrome while signed in to loom.com, or set LOOM_COOKIE to 'connect.sid=\u003cvalue\u003e'.",
+  "novel_features": [
+    {
+      "name": "Spoken-word grep",
+      "command": "grep",
+      "description": "Find the exact moment you said something in any hydrated video, with a link that jumps straight to it."
+    },
+    {
+      "name": "Transcript and AI backfill",
+      "command": "hydrate",
+      "description": "Pull transcripts plus Loom's own summaries, chapters and action items for every video sync has stored, in one resumable pass."
+    },
+    {
+      "name": "Reach deltas",
+      "command": "activity",
+      "description": "See which recent videos got new views, comments or reactions since your last check (the first run records the baseline), and which comments still need a reply."
+    },
+    {
+      "name": "Window digest",
+      "command": "digest",
+      "description": "One markdown recap of a week's videos with Loom's summaries, chapter links and action items."
+    }
+  ],
+  "novel_features_built": [
+    {
+      "name": "Spoken-word grep",
+      "command": "grep",
+      "description": "Find the exact moment you said something in any of your videos, with a link that jumps straight to it."
+    },
+    {
+      "name": "Transcript and AI backfill",
+      "command": "hydrate",
+      "description": "Pull transcripts plus Loom's own summaries, chapters and action items for your whole library in one resumable pass."
+    },
+    {
+      "name": "Reach deltas",
+      "command": "activity",
+      "description": "See which recent videos got new views, comments or reactions since you last checked, and which comments still need a reply."
+    },
+    {
+      "name": "Window digest",
+      "command": "digest",
+      "description": "One markdown recap of a week's videos with Loom's summaries, chapter links and action items."
+    }
+  ],
+  "verify": {
+    "mode": "mock",
+    "pass_rate": 98.80952380952381,
+    "passed": 83,
+    "total": 84,
+    "failed": 1,
+    "data_pipeline": true,
+    "verdict": "WARN"
+  },
+  "scorecard": {
+    "steinberger": {
+      "percentage": 85,
+      "grade": "A",
+      "total": 85
+    }
+  }
+}

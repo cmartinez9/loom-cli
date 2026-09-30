@@ -1,0 +1,9 @@
+query GetVideoTranscodedUrl($videoId: ID!, $forceOriginal: Boolean) {
+  getVideoTranscodedUrl(videoId: $videoId, forceOriginal: $forceOriginal) {
+    ... on VideoSource {
+      url
+      __typename
+    }
+    __typename
+  }
+}

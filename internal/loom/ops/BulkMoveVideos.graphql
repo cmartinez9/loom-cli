@@ -1,0 +1,6 @@
+mutation BulkMoveVideos($videoIds: [ID!]!, $newParentFolderId: ID!) {
+  bulkMoveVideos(videoIds: $videoIds, newParentFolderId: $newParentFolderId) {
+    __typename
+    ... on GenericError { message }
+  }
+}

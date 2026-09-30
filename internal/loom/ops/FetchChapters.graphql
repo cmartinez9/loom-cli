@@ -1,0 +1,27 @@
+query FetchChapters($videoId: ID!, $password: String) {
+  fetchVideoChapters(videoId: $videoId, password: $password) {
+    ... on VideoChapters {
+      id
+      video_id
+      content
+      schema_version
+      updatedAt
+      edited_at
+      auto_chapter_status
+      __typename
+    }
+    ... on EmptyChaptersPayload {
+      content
+      __typename
+    }
+    ... on InvalidRequestWarning {
+      message
+      __typename
+    }
+    ... on Error {
+      message
+      __typename
+    }
+    __typename
+  }
+}

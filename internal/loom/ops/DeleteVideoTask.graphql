@@ -1,0 +1,6 @@
+mutation DeleteVideoTask($id: ID!) {
+  deleteVideoTask(id: $id) {
+    __typename
+    ... on GenericError { message }
+  }
+}

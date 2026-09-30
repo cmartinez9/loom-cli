@@ -1,0 +1,51 @@
+query GetLoomsForLibrary($limit: Int!, $cursor: String, $folderId: String, $source: LoomsSource!, $sortType: LoomsSortType!, $sortOrder: LoomsSortOrder!, $filters: [[LoomsCollectionFilter!]!], $includeTotalCount: Boolean!) {
+  getLooms {
+    __typename
+    ... on GetLoomsPayload {
+      videos(first: $limit, after: $cursor, folderId: $folderId, source: $source, sortType: $sortType, sortOrder: $sortOrder, filters: $filters) {
+        edges {
+          cursor
+          node {
+            __typename
+            ... on RegularUserVideo {
+              ...LibraryVideo
+            }
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+        totalCount @include(if: $includeTotalCount)
+      }
+    }
+  }
+}
+
+fragment LibraryVideo on RegularUserVideo {
+  id
+  name
+  description
+  createdAt
+  archived
+  playable_duration
+  totalReactions
+  totalComments
+  views {
+    total
+  }
+  owner_id
+  owner {
+    first_name
+    last_name
+  }
+  folder {
+    id
+    name
+  }
+  download_enabled
+  privacy
+  visibility
+  tags
+  current_user_is_owner
+}

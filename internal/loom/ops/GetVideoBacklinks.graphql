@@ -1,0 +1,24 @@
+query GetVideoBacklinks($videoId: ID!, $password: String) {
+  getVideoBacklinks(videoId: $videoId, password: $password) {
+    __typename
+    ... on GetVideoBacklinksPayload {
+      backlinks {
+        id
+        isSynced
+        source
+        sourceLink
+        title
+        __typename
+      }
+      __typename
+    }
+    ... on UserNotAuthorizedError {
+      message
+      __typename
+    }
+    ... on GenericError {
+      message
+      __typename
+    }
+  }
+}

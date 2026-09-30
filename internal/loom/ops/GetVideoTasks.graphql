@@ -1,0 +1,25 @@
+query GetVideoTasks($videoId: ID!, $password: String) {
+  getVideoTasks(videoId: $videoId, password: $password) {
+    __typename
+    ... on GetVideoTasksPayload {
+      tasks {
+        id
+        video_id
+        content(withMentionMarkups: false)
+        time_stamp
+        activity_type
+        source
+        createdAt
+        approved_at
+        resolved_at
+        owner {
+          id
+          display_name
+        }
+      }
+    }
+    ... on Error {
+      message
+    }
+  }
+}

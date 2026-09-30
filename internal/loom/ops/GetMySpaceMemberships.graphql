@@ -1,0 +1,35 @@
+query GetMySpaceMemberships($first: Int!, $after: String) {
+  result: getMySpaceMemberships {
+    __typename
+    ... on GetMySpaceMembershipsPayload {
+      memberships(first: $first, after: $after) {
+        edges {
+          node {
+            id
+            unread
+            space {
+              id
+              name
+              privacy
+              is_primary
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    ... on Error {
+      message
+      __typename
+    }
+  }
+}

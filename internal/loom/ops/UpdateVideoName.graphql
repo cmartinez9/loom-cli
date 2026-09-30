@@ -1,0 +1,11 @@
+mutation UpdateVideoName($id: ID!, $name: String!) {
+  updateVideoName(id: $id, name: $name) {
+    __typename
+    ... on UpdateVideoNamePayload {
+      video {
+        id
+        name
+      }
+    }
+  }
+}

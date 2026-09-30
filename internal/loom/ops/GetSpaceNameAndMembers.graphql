@@ -1,0 +1,59 @@
+query GetSpaceNameAndMembers($spaceId: ID!, $first: Int!, $after: String) {
+  getSpaceMembers(spaceId: $spaceId) {
+    __typename
+    ... on GetSpaceMembersPayload {
+      members(spaceId: $spaceId, first: $first, after: $after) {
+        edges {
+          node {
+            id
+            user {
+              id
+              first_name
+              last_name
+              avatars {
+                thumb
+                __typename
+              }
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    ... on Error {
+      message
+      __typename
+    }
+  }
+  getSpace(spaceId: $spaceId) {
+    __typename
+    ... on GetSpacePayload {
+      __typename
+      space {
+        id
+        is_primary
+        name
+        privacy
+        totalFolders
+        totalVideos
+        topUsedTags {
+          tag
+          __typename
+        }
+        membersCount
+        currentUserIsMember
+        isArchived
+        createdAt
+        __typename
+      }
+    }
+    ... on Error {
+      message
+      __typename
+    }
+  }
+}

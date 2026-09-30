@@ -1,0 +1,3 @@
+mutation DeleteComment($id: ID!, $type: PublicVideoCommentType!) {
+  deleteComment(id: $id, type: $type)
+}

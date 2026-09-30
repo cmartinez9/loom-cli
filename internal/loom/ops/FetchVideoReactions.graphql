@@ -1,0 +1,20 @@
+query FetchVideoReactions($videoId: ID!, $password: String) {
+  videoReactionsForVideo(videoId: $videoId, password: $password) {
+    __typename
+    ... on VideoReactionsSuccessPayload {
+      reactions {
+        id
+        time
+        reaction
+        extended_reaction
+        category
+        createdAt
+        user {
+          id
+          display_name
+        }
+        anon_user_name
+      }
+    }
+  }
+}

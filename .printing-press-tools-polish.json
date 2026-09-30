@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-09-30T04:10:57.10573Z",
+  "cli_dir": "\u003ccli-dir\u003e/loom-pp-cli",
+  "findings": [
+    {
+      "kind": "thin-short",
+      "command": "list",
+      "file": "platform_client.go",
+      "line": 517,
+      "evidence": "List client profiles",
+      "status": "accepted",
+      "note": "DO-NOT-EDIT generated file (platform client-profile scaffold); needs generator-template fix. Short is accurate for a local-only listing of saved profile names."
+    },
+    {
+      "kind": "thin-short",
+      "command": "list",
+      "file": "teach.go",
+      "line": 868,
+      "evidence": "List recorded learnings",
+      "status": "accepted",
+      "note": "DO-NOT-EDIT generated learn-loop file; needs generator-template fix to name filters (--query, --warnings, --min-confidence) in the Short."
+    },
+    {
+      "kind": "missing-read-only",
+      "command": "describe",
+      "file": "videos_describe.go",
+      "line": 13,
+      "evidence": "name matches read heuristic; no mcp:read-only annotation",
+      "status": "accepted",
+      "note": "Heuristic false match: 'videos describe' is a write that sets a video's description through a Loom GraphQL mutation, so the default destructive hint is correct and read-only must not be added."
+    }
+  ],
+  "progress": {
+    "last_processed_finding_id": "missing-read-only:describe:videos_describe.go"
+  }
+}

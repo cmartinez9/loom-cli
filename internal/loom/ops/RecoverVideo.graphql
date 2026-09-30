@@ -1,0 +1,6 @@
+mutation RecoverVideo($videoId: ID!, $force: Boolean!) {
+  recoverVideo(videoId: $videoId, force: $force) {
+    __typename
+    ... on GenericError { message }
+  }
+}

@@ -1,0 +1,7 @@
+mutation UpdateVideoSettings($videoId: ID!, $settings: VideoSettingsInput!) {
+  updateVideoSettings(videoId: $videoId, settings: $settings) {
+    ... on UpdateVideoSettingsResponse { __typename }
+    ... on GenericError { message }
+    ... on InvalidRequestWarning { message }
+  }
+}

@@ -1,0 +1,51 @@
+query RecentUserVideos($startDate: String!, $endDate: String!, $offset: Int!, $limit: Int!) {
+  recentUserVideos(
+    startDate: $startDate
+    endDate: $endDate
+    offset: $offset
+    limit: $limit
+  ) {
+    id
+    owner_id
+    name
+    complete
+    summary: description
+    processing_information {
+      trim_id
+      __typename
+    }
+    playable_duration
+    video_properties {
+      recordingClient
+      recording_type
+      recording_version
+      format
+      __typename
+    }
+    thumbnails {
+      animatedPreview
+      full
+      default
+      __typename
+    }
+    createdAt
+    transcript_phrases {
+      value
+      __typename
+    }
+    owner {
+      id
+      display_name
+      avatars {
+        thumb
+        __typename
+      }
+      __typename
+    }
+    spaces {
+      id
+      __typename
+    }
+    __typename
+  }
+}

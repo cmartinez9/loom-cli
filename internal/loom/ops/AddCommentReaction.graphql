@@ -1,0 +1,6 @@
+mutation AddCommentReaction($input: AddCommentReactionInput!) {
+  addCommentReaction(input: $input) {
+    __typename
+    ... on GenericError { message }
+  }
+}

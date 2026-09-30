@@ -1,0 +1,8 @@
+query GetMyVideosFolder($workspaceId: ID) {
+  myVideosFolder(workspaceId: $workspaceId) {
+    id
+    name
+    special_id
+    __typename
+  }
+}

@@ -1,0 +1,6 @@
+mutation BatchShareVideosToSpaces($videoIds: [ID!]!, $spaceIds: [ID!]!) {
+  batchShareVideosToSpaces(videoIds: $videoIds, spaceIds: $spaceIds) {
+    ... on BatchShareVideosToSpacesPayload { __typename }
+    ... on GenericError { message }
+  }
+}

@@ -1,0 +1,17 @@
+query FetchVideoTranscript($videoId: ID!, $password: String) {
+  fetchVideoTranscript(videoId: $videoId, password: $password) {
+    __typename
+    ... on VideoTranscriptDetails {
+      idv2
+      video_id
+      version
+      source_url
+      captions_source_url
+      transcription_status
+      language
+    }
+    ... on GenericError {
+      message
+    }
+  }
+}

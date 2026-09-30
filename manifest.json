@@ -1,0 +1,38 @@
+{
+  "manifest_version": "0.3",
+  "name": "loom-pp-mcp",
+  "display_name": "Loom",
+  "version": "0.1.0",
+  "description": "Your Loom library as a local, searchable archive: grep what you said, back up everything, and recap a week in one command.",
+  "author": {
+    "name": "CLI Printing Press"
+  },
+  "license": "Apache-2.0",
+  "server": {
+    "type": "binary",
+    "entry_point": "bin/loom-pp-mcp",
+    "mcp_config": {
+      "command": "${__dirname}/bin/loom-pp-mcp",
+      "args": [],
+      "env": {
+        "LOOM_COOKIE": "${user_config.loom_cookie}"
+      }
+    }
+  },
+  "user_config": {
+    "loom_cookie": {
+      "type": "string",
+      "title": "Loom session cookie",
+      "description": "The connect.sid session cookie the Loom web app uses (valid about 30 days). Import it with auth login --chrome while signed in to loom.com, or set LOOM_COOKIE to 'connect.sid=<value>'.",
+      "sensitive": true
+    }
+  },
+  "compatibility": {
+    "claude_desktop": ">=1.0.0",
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ]
+  }
+}

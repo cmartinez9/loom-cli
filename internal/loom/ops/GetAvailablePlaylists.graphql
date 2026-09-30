@@ -1,0 +1,61 @@
+query GetAvailablePlaylists($limit: Int, $workspaceSpecific: Boolean, $first: Int, $after: String, $sortField: AvailablePlaylistsSortField, $sortDirection: AvailablePlaylistsSortDirection) {
+  getAvailablePlaylists(
+    limit: $limit
+    workspaceSpecific: $workspaceSpecific
+    sortField: $sortField
+    sortDirection: $sortDirection
+  ) {
+    ... on GetAvailablePlaylistsPayload {
+      playlists(first: $first, after: $after) {
+        pageInfo {
+          hasNextPage
+          endCursor
+          __typename
+        }
+        nodes {
+          name
+          playlistId
+          ownerId
+          createdAt
+          updatedAt
+          owner {
+            display_name
+            avatars {
+              name
+              thumb
+              large
+              __typename
+            }
+            __typename
+          }
+          videoCount
+          thumbnailUrl
+          backgroundPresetName
+          privacy
+          totalDuration
+          videos {
+            videoId
+            name
+            playableDuration
+            thumbnailUrl
+            viewerCanAccess
+            isPasswordProtected
+            owner {
+              display_name
+              avatars {
+                thumb
+                __typename
+              }
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

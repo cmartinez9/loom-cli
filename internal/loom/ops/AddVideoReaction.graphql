@@ -1,0 +1,8 @@
+mutation AddVideoReaction($videoId: ID!, $time: Int!, $type: String!) {
+  addVideoReaction(videoId: $videoId, time: $time, type: $type) {
+    __typename
+    ... on PublicVideoReaction { id time reaction extended_reaction category }
+    ... on InvalidRequestWarning { message }
+    ... on GenericError { message }
+  }
+}

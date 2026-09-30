@@ -1,0 +1,5 @@
+mutation CreateVideoComment($videoId: ID!, $content: String!, $timestamp: Int!) {
+  createVideoComment(videoId: $videoId, content: $content, timestamp: $timestamp) {
+    ... on PublicVideoComment { id content time_stamp user_name createdAt }
+  }
+}

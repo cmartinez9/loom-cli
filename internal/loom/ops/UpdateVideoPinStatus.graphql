@@ -1,0 +1,6 @@
+mutation UpdateVideoPinStatus($input: UpdateVideoPinStatusInput!) {
+  updateVideoPinStatus(input: $input) {
+    __typename
+    ... on GenericError { message }
+  }
+}

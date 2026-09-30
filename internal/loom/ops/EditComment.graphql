@@ -1,0 +1,6 @@
+mutation EditComment($id: ID!, $videoId: ID!, $content: String!, $type: PublicVideoCommentType!) {
+  editComment(id: $id, videoId: $videoId, content: $content, type: $type) {
+    __typename
+    ... on GenericError { message }
+  }
+}

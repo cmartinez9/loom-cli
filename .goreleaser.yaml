@@ -1,0 +1,55 @@
+version: 2
+project_name: loom-pp-cli
+changelog:
+  disable: true
+builds:
+  - id: loom-pp-cli
+    main: ./cmd/loom-pp-cli
+    binary: loom-pp-cli
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X loom-pp-cli/internal/cli.version={{ .Version }}
+    targets:
+      - darwin_amd64
+      - darwin_arm64
+      - linux_amd64
+      - linux_arm64
+      - windows_amd64
+      - windows_arm64
+  - id: loom-pp-mcp
+    main: ./cmd/loom-pp-mcp
+    binary: loom-pp-mcp
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.version={{ .Version }}
+    targets:
+      - darwin_amd64
+      - darwin_arm64
+      - linux_amd64
+      - linux_arm64
+      - windows_amd64
+      - windows_arm64
+archives:
+  - formats: [tar.gz]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+checksum:
+  name_template: checksums.txt
+brews:
+  - name: loom-pp-cli
+    repository:
+      owner: cmartinez9
+      name: homebrew-tap
+    homepage: "https://github.com/cmartinez9/loom-pp-cli"
+    description: "Your Loom library as a local, searchable archive: grep what you said, back up everything, and recap a week in one command."
+    install: |
+      bin.install "loom-pp-cli"
+      bin.install "loom-pp-mcp"

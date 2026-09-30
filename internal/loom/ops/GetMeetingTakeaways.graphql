@@ -1,0 +1,13 @@
+query GetMeetingTakeaways($videoId: ID!) {
+  getMeetingTakeaways(videoId: $videoId) {
+    __typename
+    ... on GetMeetingTakeawaysPayload {
+      result {
+        takeaways
+      }
+    }
+    ... on GenericError {
+      message
+    }
+  }
+}

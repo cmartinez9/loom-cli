@@ -1,0 +1,6 @@
+mutation BulkDeleteFolders($folderIds: [ID!]!) {
+  bulkDeleteFolders(folderIds: $folderIds) {
+    __typename
+    ... on GenericError { message }
+  }
+}

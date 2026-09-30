@@ -1,0 +1,9 @@
+mutation DuplicateVideo($videoId: ID!) {
+  duplicateVideo(videoId: $videoId) {
+    __typename
+    ... on DuplicateVideoPayload {
+      newVideo { id name }
+    }
+    ... on GenericError { message }
+  }
+}

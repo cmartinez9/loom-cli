@@ -1,0 +1,8 @@
+query GetUserWatchLaterListCount {
+  getUserWatchLaterListCount {
+    __typename
+    ... on WatchLaterListVideoCount {
+      count
+    }
+  }
+}

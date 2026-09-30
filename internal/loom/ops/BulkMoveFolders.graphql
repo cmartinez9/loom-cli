@@ -1,0 +1,6 @@
+mutation BulkMoveFolders($folderIds: [ID!]!, $newParentFolderId: ID!) {
+  bulkMoveFolders(folderIds: $folderIds, newParentFolderId: $newParentFolderId) {
+    __typename
+    ... on GenericError { message }
+  }
+}

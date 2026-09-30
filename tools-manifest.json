@@ -1,0 +1,65 @@
+{
+  "api_name": "loom",
+  "base_url": "https://www.loom.com",
+  "description": "Your Loom library as a local, searchable archive: grep what you said, back up everything, and recap a week in one command.",
+  "mcp_ready": "partial",
+  "http_transport": "standard",
+  "auth": {
+    "type": "cookie",
+    "header": "Cookie",
+    "in": "cookie",
+    "env_vars": [
+      "LOOM_COOKIE"
+    ],
+    "env_var_specs": [
+      {
+        "name": "LOOM_COOKIE",
+        "kind": "per_call",
+        "required": true,
+        "sensitive": true,
+        "inferred": true
+      }
+    ],
+    "cookie_domain": ".loom.com",
+    "cookies": [
+      "connect.sid"
+    ]
+  },
+  "required_headers": [
+    {
+      "name": "apollographql-client-name",
+      "value": "web"
+    },
+    {
+      "name": "x-loom-request-source",
+      "value": "loom_web"
+    },
+    {
+      "name": "content-type",
+      "value": "application/json"
+    }
+  ],
+  "tools": [],
+  "novel_features": [
+    {
+      "name": "Spoken-word grep",
+      "command": "grep",
+      "description": "Find the exact moment you said something in any hydrated video, with a link that jumps straight to it."
+    },
+    {
+      "name": "Transcript and AI backfill",
+      "command": "hydrate",
+      "description": "Pull transcripts plus Loom's own summaries, chapters and action items for every video sync has stored, in one resumable pass."
+    },
+    {
+      "name": "Reach deltas",
+      "command": "activity",
+      "description": "See which recent videos got new views, comments or reactions since your last check (the first run records the baseline), and which comments still need a reply."
+    },
+    {
+      "name": "Window digest",
+      "command": "digest",
+      "description": "One markdown recap of a week's videos with Loom's summaries, chapter links and action items."
+    }
+  ]
+}

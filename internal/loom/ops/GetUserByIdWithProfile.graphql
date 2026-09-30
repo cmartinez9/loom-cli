@@ -1,0 +1,56 @@
+query GetUserByIdWithProfile($userId: ID!) {
+  user: getUserById(userId: $userId) {
+    __typename
+    ... on RegularUserPayload {
+      user {
+        id
+        email
+        first_name
+        last_name
+        avatars {
+          thumb
+          large
+          isAtlassianMastered
+          __typename
+        }
+        profile {
+          profileUrl
+          profileVideoCount
+          communityVideoCount
+          profileInfo {
+            role
+            location
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    ... on CommunityUserPayload {
+      user {
+        id
+        first_name
+        last_name
+        avatars {
+          thumb
+          large
+          __typename
+        }
+        profile {
+          profileUrl
+          communityVideoCount
+          profileInfo {
+            role
+            location
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+  }
+}
