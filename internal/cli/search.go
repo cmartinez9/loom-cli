@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // isNilOrEmpty checks whether a JSON search hit is only an empty shell.

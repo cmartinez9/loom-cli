@@ -18,11 +18,17 @@ metadata:
 
 This skill drives the `loom-pp-cli` binary. **You must verify the CLI is installed before invoking any command from this skill.** If it is missing, install it first:
 
-This CLI is built from source and is not published to the public printing-press library (there is no `npx` installer or remote `go install` path).
+Requires Go 1.26.6 or newer.
 
-1. Build and install it from its source checkout (this repository, or the local printing-press library copy at `~/printing-press/library/loom`); requires Go 1.26.6 or newer:
+1. Install from GitHub:
    ```bash
-   make install    # go install ./cmd/loom-pp-cli, into $GOBIN (default $HOME/go/bin)
+   go install github.com/cmartinez9/loom-cli/cmd/loom-pp-cli@latest
+   ```
+   Or build from a clone:
+   ```bash
+   git clone https://github.com/cmartinez9/loom-cli.git
+   cd loom-cli
+   make install
    ```
 2. Verify: `loom-pp-cli --version`
 3. Ensure `$GOBIN` (default `$HOME/go/bin`) is on `$PATH` for the agent/runtime that will invoke this skill.
@@ -565,10 +571,11 @@ Parse `$ARGUMENTS`:
 
 ## MCP Server Installation
 
-1. Install the MCP server from the CLI's source checkout (this repository or `~/printing-press/library/loom`):
+1. Install the MCP server (requires Go 1.26.6 or newer):
    ```bash
-   make install-mcp
+   go install github.com/cmartinez9/loom-cli/cmd/loom-pp-mcp@latest
    ```
+   Or run `make install-mcp` from a clone of this repository.
 2. Register with Claude Code:
    ```bash
    claude mcp add loom-pp-mcp -- loom-pp-mcp

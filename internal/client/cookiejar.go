@@ -15,7 +15,7 @@ import (
 	"sync"
 	"time"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // cookieJar wraps an http.CookieJar so writes (server Set-Cookie response

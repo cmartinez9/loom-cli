@@ -19,7 +19,7 @@ import (
 	"sync"
 	"time"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // The invocation journal records one entry per CLI invocation in dated

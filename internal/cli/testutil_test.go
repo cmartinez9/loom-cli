@@ -13,12 +13,12 @@ import (
 	"testing"
 	"time"
 
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/cliutil/testenv"
-	"loom-pp-cli/internal/config"
-	"loom-pp-cli/internal/loom"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // newTestStore opens a temp SQLite store with the Loom tables.

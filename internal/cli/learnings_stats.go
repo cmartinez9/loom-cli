@@ -14,7 +14,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // learnStatsEnvelope locks the JSON contract for `learnings stats`.

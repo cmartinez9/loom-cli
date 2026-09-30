@@ -14,7 +14,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // videoSelector is the one set of video-selection flags: a recording-time

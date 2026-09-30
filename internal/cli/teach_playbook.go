@@ -20,9 +20,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/learn"
-	"loom-pp-cli/internal/learn/entities"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/learn"
+	"github.com/cmartinez9/loom-cli/internal/learn/entities"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // newTeachPlaybookCmd builds the standalone command for recording a

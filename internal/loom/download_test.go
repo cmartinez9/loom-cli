@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 func TestParseDownloadURL(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // Shared argument handling for the write (organizing) commands: videos

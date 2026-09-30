@@ -31,9 +31,9 @@ import (
 	"strings"
 	"sync"
 
-	"loom-pp-cli/internal/cli/playbooks"
-	"loom-pp-cli/internal/learn"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/cli/playbooks"
+	"github.com/cmartinez9/loom-cli/internal/learn"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // playbookSeedSentinelFamily is the synthetic query_family used to

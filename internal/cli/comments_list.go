@@ -8,8 +8,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/loom"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // flatComment is one comment in --flat output: replies are separate rows

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // Reads over the synced resource tables (videos, folders, spaces).

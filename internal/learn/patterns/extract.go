@@ -10,7 +10,7 @@ import (
 	"sort"
 	"strings"
 
-	"loom-pp-cli/internal/learn/lookups"
+	"github.com/cmartinez9/loom-cli/internal/learn/lookups"
 )
 
 // extractWindow caps how many of the most-recently-observed

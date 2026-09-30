@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/config"
-	"loom-pp-cli/internal/platform"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/platform"
 )
 
 func TestPlatformRateLimitRetriesSafeRequestAndRecordsMetadata(t *testing.T) {

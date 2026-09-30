@@ -12,7 +12,7 @@ import (
 	"strings"
 	"unicode"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // LookupRow is the canonical seed-row shape used by both the seeds

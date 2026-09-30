@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // backlinkRow is one row of `backlinks`: a page that links to or embeds the

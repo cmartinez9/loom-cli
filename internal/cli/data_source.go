@@ -19,8 +19,8 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 const networkFallbackReason = "api_unreachable"

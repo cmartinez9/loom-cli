@@ -12,8 +12,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // graphqlPath is the single endpoint every Loom web-app data call uses.

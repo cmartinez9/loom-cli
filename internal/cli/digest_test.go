@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"loom-pp-cli/internal/loom"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 const digestTestID = "8f3c1a9e2b7d4c6f9a0e1d2c3b4a5f60"

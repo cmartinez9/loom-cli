@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	"loom-pp-cli/internal/platform"
+	"github.com/cmartinez9/loom-cli/internal/platform"
 )
 
 func adoptPlatformCommandWindow(cmd *cobra.Command, flags *rootFlags) error {

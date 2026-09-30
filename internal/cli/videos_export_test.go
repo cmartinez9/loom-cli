@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 func TestRenderExportMarkdownAndIdempotentWrite(t *testing.T) {

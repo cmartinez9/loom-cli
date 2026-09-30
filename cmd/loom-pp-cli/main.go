@@ -6,7 +6,7 @@ package main
 import (
 	"os"
 
-	"loom-pp-cli/internal/cli"
+	"github.com/cmartinez9/loom-cli/internal/cli"
 )
 
 func main() {

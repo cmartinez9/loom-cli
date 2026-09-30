@@ -14,11 +14,11 @@ import (
 	"sync"
 	"testing"
 
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/cliutil/testenv"
-	"loom-pp-cli/internal/learn"
-	"loom-pp-cli/internal/learn/entities"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/learn"
+	"github.com/cmartinez9/loom-cli/internal/learn/entities"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 func unmarshalAgentResults(t *testing.T, stdout string, out any) {

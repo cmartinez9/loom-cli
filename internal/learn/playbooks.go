@@ -13,7 +13,7 @@ import (
 	"sort"
 	"strings"
 
-	"loom-pp-cli/internal/learn/entities"
+	"github.com/cmartinez9/loom-cli/internal/learn/entities"
 )
 
 // EntityResolver looks up a token in entity_lookups to find its

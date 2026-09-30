@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // teachLogStateDirName is the per-user state directory name.

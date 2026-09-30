@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"loom-pp-cli/internal/loom"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 func intp(v int) *int { return &v }

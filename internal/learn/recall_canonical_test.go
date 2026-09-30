@@ -20,7 +20,7 @@ import (
 	"strings"
 	"testing"
 
-	"loom-pp-cli/internal/learn/entities"
+	"github.com/cmartinez9/loom-cli/internal/learn/entities"
 
 	_ "modernc.org/sqlite"
 )

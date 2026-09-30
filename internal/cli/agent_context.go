@@ -10,8 +10,8 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/learn"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/learn"
 )
 
 // agentContextSchemaVersion is bumped on any breaking change to the JSON

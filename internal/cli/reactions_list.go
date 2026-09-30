@@ -9,7 +9,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // reactionCount is one row of `reactions list --summary`.

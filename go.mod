@@ -1,4 +1,4 @@
-module loom-pp-cli
+module github.com/cmartinez9/loom-cli
 
 go 1.26.6
 

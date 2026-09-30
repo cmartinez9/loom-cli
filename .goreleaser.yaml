@@ -11,7 +11,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - -s -w -X loom-pp-cli/internal/cli.version={{ .Version }}
+      - -s -w -X github.com/cmartinez9/loom-cli/internal/cli.version={{ .Version }}
     targets:
       - darwin_amd64
       - darwin_arm64
@@ -48,7 +48,7 @@ brews:
     repository:
       owner: cmartinez9
       name: homebrew-tap
-    homepage: "https://github.com/cmartinez9/loom-pp-cli"
+    homepage: "https://github.com/cmartinez9/loom-cli"
     description: "Your Loom library as a local, searchable archive: grep what you said, back up everything, and recap a week in one command."
     install: |
       bin.install "loom-pp-cli"

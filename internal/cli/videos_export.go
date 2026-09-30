@@ -13,8 +13,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // exportBundle is everything exported for one video. The Markdown file is

@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"testing"
 
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 func openLearnings(t *testing.T) *store.Store {

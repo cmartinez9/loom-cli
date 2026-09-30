@@ -17,8 +17,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/learn"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/learn"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // deriveDBPath allocates a fresh candidate-store path per test.

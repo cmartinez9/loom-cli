@@ -18,7 +18,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // confirm says whether a write needs --yes, and why. The empty value means

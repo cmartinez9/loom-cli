@@ -8,8 +8,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // The one video filter (selectFilter) and the one newest-first library scan

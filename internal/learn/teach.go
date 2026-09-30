@@ -19,7 +19,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"loom-pp-cli/internal/learn/entities"
+	"github.com/cmartinez9/loom-cli/internal/learn/entities"
 )
 
 // Warning is one teach-time validation finding. The shape is the JSON

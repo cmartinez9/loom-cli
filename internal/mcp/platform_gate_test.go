@@ -12,10 +12,10 @@ import (
 
 	mcplib "github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
-	"loom-pp-cli/internal/cli"
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/config"
-	"loom-pp-cli/internal/platform"
+	"github.com/cmartinez9/loom-cli/internal/cli"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/platform"
 )
 
 func TestMCPEveryRegisteredToolHasFreshTenantGate(t *testing.T) {

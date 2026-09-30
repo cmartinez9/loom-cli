@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 func TestBuildSelectFilterErrors(t *testing.T) {

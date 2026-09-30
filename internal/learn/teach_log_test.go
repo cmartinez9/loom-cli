@@ -11,8 +11,8 @@ import (
 	"sync"
 	"testing"
 
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
 )
 
 func withTempHomeForLog(t *testing.T) string {

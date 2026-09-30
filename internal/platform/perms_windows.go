@@ -17,7 +17,7 @@ import (
 	"fmt"
 	"os"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // verifyPrivatePerms reports an unsafe owner or DACL on stderr and allows the

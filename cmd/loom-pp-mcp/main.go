@@ -13,8 +13,8 @@ import (
 	"strings"
 
 	"github.com/mark3labs/mcp-go/server"
-	"loom-pp-cli/internal/cli"
-	mcptools "loom-pp-cli/internal/mcp"
+	"github.com/cmartinez9/loom-cli/internal/cli"
+	mcptools "github.com/cmartinez9/loom-cli/internal/mcp"
 )
 
 // Transport selection order: --transport flag, then PP_MCP_TRANSPORT env,

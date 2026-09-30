@@ -8,7 +8,7 @@ import (
 	"strings"
 	"unicode"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // videoIDHexRe is the only video id shape allowed into a file name.

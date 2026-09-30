@@ -16,10 +16,10 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/config"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // Hand-coded auth flows can report credentials that are intentionally not

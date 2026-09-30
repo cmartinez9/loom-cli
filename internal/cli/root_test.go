@@ -13,11 +13,11 @@ import (
 	"strings"
 	"testing"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
 )
 
 func TestMain(m *testing.M) {

@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"loom-pp-cli/internal/learn/entities"
+	"github.com/cmartinez9/loom-cli/internal/learn/entities"
 )
 
 // NormalizedQuery is the entity-aware normalized representation of a

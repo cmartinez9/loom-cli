@@ -16,8 +16,8 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"loom-pp-cli/internal/config"
-	"loom-pp-cli/internal/platform"
+	"github.com/cmartinez9/loom-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/platform"
 )
 
 func TestTruncateBody(t *testing.T) {

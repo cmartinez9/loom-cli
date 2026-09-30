@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // fetchLoomSyncPage runs the Loom operation behind one sync resource and

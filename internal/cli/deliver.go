@@ -14,8 +14,8 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // DeliverSink describes where command output should be routed when

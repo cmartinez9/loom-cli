@@ -7,7 +7,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // parseWindow parses a relative look-back flag such as --since 30d. Empty

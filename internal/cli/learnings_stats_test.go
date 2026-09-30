@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // runLearningsStatsJSON executes `learnings stats --json` against the

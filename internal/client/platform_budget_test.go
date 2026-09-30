@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"loom-pp-cli/internal/platform"
+	"github.com/cmartinez9/loom-cli/internal/platform"
 )
 
 func TestPlatformBudgetLookupContract(t *testing.T) {

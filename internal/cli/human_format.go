@@ -7,7 +7,7 @@ package cli
 import (
 	"fmt"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // formatDate renders a Loom timestamp as a local YYYY-MM-DD date, or the

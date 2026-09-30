@@ -17,10 +17,10 @@ import (
 	"testing"
 	"time"
 
-	"loom-pp-cli/internal/cli"
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/cliutil/testenv"
-	"loom-pp-cli/internal/learn"
+	"github.com/cmartinez9/loom-cli/internal/cli"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/learn"
 )
 
 // withJournalHome isolates a test in a temp HOME with every journal

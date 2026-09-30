@@ -24,8 +24,8 @@ import (
 	"regexp"
 	"sync"
 
-	"loom-pp-cli/internal/learn/entities"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/learn/entities"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // newLearnConfig returns the per-CLI entity extractor Config the

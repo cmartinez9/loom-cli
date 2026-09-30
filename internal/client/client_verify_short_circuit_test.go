@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"loom-pp-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/config"
 )
 
 // recordingRoundTripper counts how many times its RoundTrip method is

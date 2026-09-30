@@ -15,9 +15,9 @@ import (
 	"time"
 
 	"github.com/pelletier/go-toml/v2"
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/cliutil/testenv"
-	"loom-pp-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/config"
 )
 
 func resetCredentialEnv(t *testing.T) (home, configPath string) {

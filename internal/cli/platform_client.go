@@ -13,8 +13,8 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/platform"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/platform"
 )
 
 // platformSourceRegistration is intentionally package-local: a preserved

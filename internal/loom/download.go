@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // Downloader streams signed cdn.loom.com MP4s to disk. It is resumable

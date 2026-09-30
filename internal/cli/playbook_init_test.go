@@ -18,9 +18,9 @@ import (
 	"testing"
 	"testing/fstest"
 
-	"loom-pp-cli/internal/cli/playbooks"
-	"loom-pp-cli/internal/learn"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/cli/playbooks"
+	"github.com/cmartinez9/loom-cli/internal/learn"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // twoPlaybookFS returns an fstest.MapFS with two minimal playbooks +

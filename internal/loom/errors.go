@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strings"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // Typed errors every fetcher reports, and the predicates commands use to

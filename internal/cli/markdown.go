@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"strings"
 
-	"loom-pp-cli/internal/loom"
+	"github.com/cmartinez9/loom-cli/internal/loom"
 )
 
 // mdEscaper escapes the characters that would turn untrusted text (video

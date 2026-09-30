@@ -4,25 +4,32 @@
 
 loom-pp-cli signs in with your existing Loom browser session and syncs your library into a local SQLite store. hydrate pulls every transcript and Loom's own AI summaries and chapters, grep finds the exact moment you said something with a deep link, digest rolls a week into one recap, and activity shows new views and comments since you last looked.
 
+This is an unofficial CLI that uses Loom's internal web API with your own signed-in session.
+
 Learn more at [Loom](https://www.loom.com).
 
 Created by [@cmartinez9](https://github.com/cmartinez9) (cmartinez9).
 
 ## Install
 
-This CLI is built from source. It is not published to the public printing-press library, so there is no `npx` installer, remote `go install` path, release download or Hermes/OpenClaw package for it.
-
-From this repository (requires Go 1.26.6 or newer):
+Requires Go 1.26.6 or newer:
 
 ```bash
-make install        # go install ./cmd/loom-pp-cli, into $GOBIN (default $HOME/go/bin)
-make install-mcp    # optional: the MCP server, loom-pp-mcp
+go install github.com/cmartinez9/loom-cli/cmd/loom-pp-cli@latest
+go install github.com/cmartinez9/loom-cli/cmd/loom-pp-mcp@latest  # optional MCP server
 loom-pp-cli --version
 ```
 
-To build into `./bin` without installing, run `make build` (and `make build-mcp`). Make sure `$GOBIN` (or `$HOME/go/bin`) is on your `$PATH`.
+Or build from a clone:
 
-A promoted copy of the same source lives in the local printing-press library at `~/printing-press/library/loom`; the same `make` targets work there.
+```bash
+git clone https://github.com/cmartinez9/loom-cli.git
+cd loom-cli
+make install
+make install-mcp    # optional MCP server
+```
+
+To build into `./bin` without installing, run `make build` (and `make build-mcp`). Make sure `$GOBIN` (or `$HOME/go/bin`) is on your `$PATH`.
 
 To use the agent skill, copy `SKILL.md` into your agent's skills directory, for example for Claude Code:
 
@@ -42,7 +49,7 @@ loom-pp-cli auth login --chrome
 
 To install:
 
-1. Use the locally built bundle at `~/printing-press/library/loom/build/loom-pp-mcp-darwin-arm64.mcpb` (macOS Apple Silicon), or build one for your platform with `cli-printing-press bundle ~/printing-press/library/loom --platform <os/arch>`.
+1. From a clone, build a bundle for your platform with `cli-printing-press bundle . --platform <os/arch>`; the bundle is written under `build/`.
 2. Double-click the `.mcpb` file. Claude Desktop opens and walks you through the install.
 
 Requires Claude Desktop 1.0.0 or later. If you cannot use a bundle, use the manual config below.
@@ -54,7 +61,7 @@ If you can't use the MCPB bundle (older Claude Desktop, unsupported platform), i
 
 
 ```bash
-make install-mcp   # from this repository or ~/printing-press/library/loom
+go install github.com/cmartinez9/loom-cli/cmd/loom-pp-mcp@latest
 ```
 
 Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):

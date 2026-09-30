@@ -11,10 +11,10 @@ import (
 	"testing"
 	"time"
 
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/cliutil/testenv"
-	"loom-pp-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/config"
 )
 
 // failingTransport fails every request the way net/http does: with a

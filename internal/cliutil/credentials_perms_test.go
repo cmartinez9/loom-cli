@@ -20,7 +20,7 @@ import (
 	"strings"
 	"testing"
 
-	"loom-pp-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
 )
 
 // credsSampleReadPermsToken is an exposed on-disk token value written to the

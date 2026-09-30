@@ -8,8 +8,8 @@ import (
 
 	mcplib "github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
-	"loom-pp-cli/internal/cli"
-	"loom-pp-cli/internal/platform"
+	"github.com/cmartinez9/loom-cli/internal/cli"
+	"github.com/cmartinez9/loom-cli/internal/platform"
 )
 
 const mcpTenantGateOwnerKey = "pp:tenant-gate"

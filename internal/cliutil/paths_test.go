@@ -14,7 +14,7 @@ import (
 	"syscall"
 	"testing"
 
-	"loom-pp-cli/internal/cliutil/testenv"
+	"github.com/cmartinez9/loom-cli/internal/cliutil/testenv"
 )
 
 func resetPathEnv(t *testing.T) string {

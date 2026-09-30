@@ -15,9 +15,9 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/learn/entities"
-	"loom-pp-cli/internal/learn/lookups"
-	"loom-pp-cli/internal/learn/patterns"
+	"github.com/cmartinez9/loom-cli/internal/learn/entities"
+	"github.com/cmartinez9/loom-cli/internal/learn/lookups"
+	"github.com/cmartinez9/loom-cli/internal/learn/patterns"
 )
 
 // Default thresholds. Keep in sync with the documented contract in

@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // This file owns post-run flag-correction derivation: turning an

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
 )
 
 // Loom sessions can also live only in the persisted cookie jar (cookies.json

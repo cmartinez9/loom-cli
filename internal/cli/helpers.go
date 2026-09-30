@@ -26,10 +26,10 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
-	"loom-pp-cli/internal/client"
-	"loom-pp-cli/internal/cliutil"
-	"loom-pp-cli/internal/config"
-	"loom-pp-cli/internal/platform"
+	"github.com/cmartinez9/loom-cli/internal/client"
+	"github.com/cmartinez9/loom-cli/internal/cliutil"
+	"github.com/cmartinez9/loom-cli/internal/config"
+	"github.com/cmartinez9/loom-cli/internal/platform"
 )
 
 var As = errors.As

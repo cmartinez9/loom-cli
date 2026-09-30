@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"loom-pp-cli/internal/learn/lookups"
+	"github.com/cmartinez9/loom-cli/internal/learn/lookups"
 )
 
 // DefaultJaccardMin matches the recall-side floor. Applying the same

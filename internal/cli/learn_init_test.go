@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"loom-pp-cli/internal/learn"
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/learn"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // TestNewLearnConfig_BuildsConfig pins that the emitted init shim

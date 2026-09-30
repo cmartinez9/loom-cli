@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"loom-pp-cli/internal/store"
+	"github.com/cmartinez9/loom-cli/internal/store"
 )
 
 // writePlaybookFile is a test helper that drops a fixture file at the
