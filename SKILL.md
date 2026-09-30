@@ -10,10 +10,6 @@ metadata:
     requires:
       bins:
         - loom-pp-cli
-    install:
-      - kind: go
-        bins: [loom-pp-cli]
-        module: github.com/mvanhorn/printing-press-library/library/productivity/loom/cmd/loom-pp-cli
 ---
 
 # Loom — Printing Press CLI
@@ -22,18 +18,14 @@ metadata:
 
 This skill drives the `loom-pp-cli` binary. **You must verify the CLI is installed before invoking any command from this skill.** If it is missing, install it first:
 
-1. Install via the Printing Press installer. It defaults binaries to `$HOME/.local/bin` on macOS/Linux and `%LOCALAPPDATA%\Programs\PrintingPress\bin` on Windows:
+This CLI is built from source and is not published to the public printing-press library (there is no `npx` installer or remote `go install` path).
+
+1. Build and install it from its source checkout (this repository, or the local printing-press library copy at `~/printing-press/library/loom`); requires Go 1.26.6 or newer:
    ```bash
-   npx -y @mvanhorn/printing-press-library install loom --cli-only
+   make install    # go install ./cmd/loom-pp-cli, into $GOBIN (default $HOME/go/bin)
    ```
 2. Verify: `loom-pp-cli --version`
-3. Ensure the reported install directory is on `$PATH` for the agent/runtime that will invoke this skill.
-
-If the `npx` install fails (no Node, offline, etc.), fall back to a direct Go install (requires Go 1.26.6 or newer). This installs into `$GOPATH/bin` (default `$HOME/go/bin`), so add that directory to `$PATH` instead:
-
-```bash
-go install github.com/mvanhorn/printing-press-library/library/productivity/loom/cmd/loom-pp-cli@latest
-```
+3. Ensure `$GOBIN` (default `$HOME/go/bin`) is on `$PATH` for the agent/runtime that will invoke this skill.
 
 If `--version` reports "command not found" after install, the runtime cannot see the binary directory on `$PATH`. Do not proceed with skill commands until verification succeeds.
 
@@ -573,9 +565,9 @@ Parse `$ARGUMENTS`:
 
 ## MCP Server Installation
 
-1. Install the MCP server:
+1. Install the MCP server from the CLI's source checkout (this repository or `~/printing-press/library/loom`):
    ```bash
-   go install github.com/mvanhorn/printing-press-library/library/productivity/loom/cmd/loom-pp-mcp@latest
+   make install-mcp
    ```
 2. Register with Claude Code:
    ```bash
